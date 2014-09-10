@@ -1,0 +1,35 @@
+{
+  "name": "transform-deps",
+  "version": "0.1.0",
+  "description": "parse the ast and transform require calls.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tetsuo/transform-deps.git"
+  },
+  "keywords": [
+    "parse",
+    "transform",
+    "require",
+    "dependencies",
+    "acorn",
+    "ast",
+    "walk"
+  ],
+  "author": "Onur Gunduz <ogunduz@gmail.com> (http://onurgunduz.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tetsuo/transform-deps/issues"
+  },
+  "homepage": "https://github.com/tetsuo/transform-deps",
+  "dependencies": {
+    "acorn": "^0.7.0"
+  },
+  "devDependencies": {}
+}
