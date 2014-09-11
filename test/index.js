@@ -24,3 +24,6 @@ var res = transformdeps(src, fn);
 assert.equal("var x=5;\nfunction k() {require(\"zxcqlw\");return 1;}\nvar fs = require('fsx');\n/* ehlo */\nrequire('./path');var k = 3;\n", res);
 res = transformdeps(src, fn1);
 assert.equal(res, src);
+src = "try { require('a') } catch (e) { require('b'); } require('c');";
+res = transformdeps(src, function () { return 'x'; }, true);
+assert.equal(res, "try { require('a') } catch (e) { require('b'); } require('x');");

@@ -9,7 +9,7 @@ transformdeps("require('fs');require('path');", fn (n) {
 ```
 
 ##api
-### transformdeps(src, fn)
+### transformdeps(src, fn, ignore_trycatch)
 Returns string.
 
 ## license
