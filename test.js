@@ -1,6 +1,5 @@
-
 var assert = require('assert');
-var transformdeps = require('..');
+var transform = require('./index');
 var obj = {
   fs: 'fsx',
   path: './path',
@@ -20,10 +19,10 @@ function fn1 (dep) {
   return obj1[dep];
 }
 var src = "var x=5;\nfunction k() {require(\"util\");return 1;}\nvar fs = require('fs');\n/* ehlo */\nrequire('path');var k = 3;\n";
-var res = transformdeps(src, fn);
+var res = transform(src, fn);
 assert.equal("var x=5;\nfunction k() {require(\"zxcqlw\");return 1;}\nvar fs = require('fsx');\n/* ehlo */\nrequire('./path');var k = 3;\n", res);
-res = transformdeps(src, fn1);
+res = transform(src, fn1);
 assert.equal(res, src);
 src = "try { require('a') } catch (e) { require('b'); } require('c');";
-res = transformdeps(src, function () { return 'x'; }, true);
+res = transform(src, function () { return 'x'; }, true);
 assert.equal(res, "try { require('a') } catch (e) { require('b'); } require('x');");

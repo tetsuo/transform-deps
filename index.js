@@ -1,10 +1,7 @@
-
-module.exports = transformdeps;
-
 var acorn = require('acorn');
 var walk = require('acorn/util/walk');
 
-function transformdeps (src, fn, ignore_trycatch) {
+module.exports = function (src, fn, ignore_trycatch) {
   var ret = src;
   var ast = acorn.parse(src, { ranges: true });
   var offset = 0;
@@ -31,4 +28,4 @@ function transformdeps (src, fn, ignore_trycatch) {
     }
   });
   return ret;
-}
+};

@@ -1,13 +1,10 @@
 {
   "name": "transform-deps",
-  "version": "0.1.1",
-  "description": "parse the ast and transform require calls.",
+  "version": "1.0.0",
+  "description": "parses the ast and transforms require() calls",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "node test"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +14,7 @@
     "parse",
     "transform",
     "require",
-    "dependencies",
-    "acorn",
-    "ast",
-    "walk"
+    "dependencies"
   ],
   "author": "Onur Gunduz <ogunduz@gmail.com> (http://onurgunduz.com/)",
   "license": "MIT",
