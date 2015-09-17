@@ -1,7 +1,7 @@
 {
   "name": "transform-deps",
   "version": "1.0.0",
-  "description": "parses the ast and transforms require() calls",
+  "description": "parse the ast and transform require() calls",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/tetsuo/transform-deps",
   "dependencies": {
     "falafel": "^1.2.0",
-    "lodash.assign": "^3.2.0"
+    "xtend": "^4.0.0"
   },
   "devDependencies": {}
 }
