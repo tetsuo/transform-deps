@@ -1,6 +1,6 @@
 {
   "name": "transform-deps",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "parse the ast and transform require() calls",
   "main": "index.js",
   "scripts": {
