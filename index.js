@@ -7,7 +7,7 @@ module.exports = function (src, opts, cb) {
     opts = null;
   }
 
-  opts = xtend({ ranges: true }, opts);
+  opts = xtend({ ranges: true, asString: true }, opts);
 
   var ret = falafel(src, opts, function (node) {
     if (node.type === 'CallExpression' &&
@@ -38,7 +38,10 @@ module.exports = function (src, opts, cb) {
     }
   });
 
-  return ret.toString();
+  if (opts.asString)
+    return ret.toString();
+
+  return ret;
 };
 
 function parents(node) {
