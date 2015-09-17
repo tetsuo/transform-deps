@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/tetsuo/transform-deps",
   "dependencies": {
-    "acorn": "^0.7.0"
+    "falafel": "^1.2.0",
+    "lodash.assign": "^3.2.0"
   },
   "devDependencies": {}
 }
