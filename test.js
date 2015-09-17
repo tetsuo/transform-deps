@@ -30,4 +30,8 @@ res = transform(src, { ignoreTryCatch: true }, function () { return 'x'; });
 assert.equal(res, "try { require('a') } catch (e) { require('b'); } require('x');");
 src = "var arr1 = ['val1'];\nvar arr2 = [...arr1, 'val2'];\nvar fs = require('fs');";
 res = transform(src, { ecmaVersion: 6 }, fn);
+assert.equal(typeof res === 'string', true);
 assert.equal(res, "var arr1 = ['val1'];\nvar arr2 = [...arr1, 'val2'];\nvar fs = require('fsx');");
+src = "k = require('x')";
+res = transform(src, { asString: false }, function (j) { assert.equal(j, 'x'); return 'y'; });
+assert.equal(typeof res === 'string', false);
