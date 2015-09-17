@@ -1,6 +1,8 @@
 # transform-deps
 
-parses the ast and transforms require() calls.
+parse the ast and transform require() calls.
+
+# example
 
 ```js
 var transform = require('transform-deps');
@@ -17,40 +19,22 @@ outputs:
 require('z'); require('y')
 ```
 
-# options
-
-in addition to the [options supported by falafel](https://github.com/substack/node-falafel#custom-parser), we support:
-
-- `ignoreTryCatch=false`: ignore require statements in try/catch blocks
-
-options may be passed by using an object as the second argument.  If this is done, pass the transform function as the
-3rd argument.
-
-```js
-var acorn = require('acorn-jsx');
-var transform = require('transform-deps');
-var src = [
-    "require('x');",
-    "function Thing() {}",
-    "var foo = <Thing/>;",
-    "var arr1 = [1]; var arr2 = [...arr1, 2]",
-    "require('y');"
-].join("\n");
-src = transform(src, {
-    ecmaVersion: 6,
-    parser: acorn,
-    plugins: {jsx: true}
-}, function(name) {
-    if (name == 'x') return 'z';
-});
-console.log(src);
-```
-
 # api
 
-## var s = transform(src, cb)
+```js
+var transform = require('transform-deps')
+```
 
-## var s = transform(src, options, cb)
+## var str = transform(src[, opts], cb)
+
+Transforms the string source `src` with the function `cb`, returning transformed string `str`.
+
+`opts` are:
+
+* `asString`: Returns a plain string instead of [falafel](https://github.com/substack/node-falafel) output (default: `true`)
+* `ignoreTryCatch`: Skips try/catch statements (default: `false`)
+
+All of the `opts` will be passed to [falafel](https://github.com/substack/node-falafel).
 
 # license
 
